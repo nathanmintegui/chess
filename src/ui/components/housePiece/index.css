@@ -1,6 +1,15 @@
 .house-piece {
   width: 50px;
   height: 50px;
+  
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.piece {
+  width: 65%;
 }
 
 .white {

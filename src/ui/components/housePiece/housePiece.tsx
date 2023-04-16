@@ -1,7 +1,16 @@
-import './index.css';
+import React from 'react'
 
-export const HousePiece = (props: { position: string, color: string }) => {
+import './index.css'
+
+interface HousePieceProps {
+  color: string
+  piece: string
+}
+
+export const HousePiece: React.FC<HousePieceProps> = ({ color, piece }) => {
   return (
-    <div className={`house-piece ${props.color}`}>{props.position}</div>
-  );
+    <div className={`house-piece ${color}`}>
+      <img src={piece} className='piece' />
+    </div>
+  )
 }
