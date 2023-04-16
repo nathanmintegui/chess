@@ -8,6 +8,15 @@
   align-items: center;
 }
 
+.board__border--thick {
+  border: 1.5em solid white;
+  border-radius: 0.5em;
+}
+
+.board__border--thin {
+  border: 0.5em solid black;
+}
+
 .board-container {
   display: flex;
   flex-wrap: wrap;
