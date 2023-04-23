@@ -10,7 +10,7 @@ interface HousePieceProps {
 export const HousePiece: React.FC<HousePieceProps> = ({ color, piece }) => {
   return (
     <div className={`house-piece ${color}`}>
-      <img src={piece} className='piece' />
+      <img src={piece} className="piece" />
     </div>
   )
 }
