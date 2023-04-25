@@ -34,6 +34,7 @@ export const Board: React.FC = () => {
                       key={index}
                       piece={house.icon}
                       color={house.color}
+                      value={house.value}
                     />
                   ))
                 )}

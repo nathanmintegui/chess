@@ -1,3 +1,5 @@
+import createGlobalState from 'react-create-global-state'
+
 import {
   PawnWhite,
   PawnBlack,
@@ -13,7 +15,7 @@ import {
   RookBlack
 } from '../assets/pieces'
 
-export const boardPositions: object[][] = [
+const initialState: object[][] = [
   [
     { value: 'a8', color: 'black', icon: RookBlack },
     { value: 'b8', color: 'white', icon: KnightBlack },
@@ -96,15 +98,8 @@ export const boardPositions: object[][] = [
   ]
 ]
 
-export const horizontalBoardPositons: string[] = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H'
-]
+const [useGlobalBoard, Provider] = createGlobalState(initialState)
 
-export const verticalBoardPositions: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
+export const GlobalBoardProvider = Provider
+
+export default useGlobalBoard
