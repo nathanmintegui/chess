@@ -2,61 +2,38 @@ import React from 'react'
 
 import './index.css'
 
-import useGlobalContext from '../../../context/useGlobalContext'
-import useGlobalBoard from '../../../context/useGlobalBoard'
-
-import {
-  getColumnNumber,
-  getRelativeColumnBoardIndex,
-  getRelativeLineBoardIndex
-} from '../../../utils/board.utils'
-
-import { boardPositions } from '../../../constants'
-
 interface HousePieceProps {
   color: string
   piece: string
   value: string
+  move: React.FC
+  player: string
+  selectedPiece: object
+  selectPiece: React.FC
 }
 
 export const HousePiece: React.FC<HousePieceProps> = ({
   color,
   piece,
-  value
+  value,
+  move,
+  player,
+  selectedPiece,
+  selectPiece
 }) => {
-  const [data, setData] = useGlobalContext()
-  const [board, setBoard] = useGlobalBoard()
-
-  const onmousedown = (value: string): void => {
-    if (data.initialPosition === null) {
-      setData(data => ({
-        ...data,
-        initialPosition: value
-      }))
-    } else if (data.finalPosition === null) {
-      setData(data => ({
-        ...data,
-        finalPosition: value
-      }))
-    } else if (data.initialPosition !== null && data.finalPosition !== null) {
-      const columnIndex = getRelativeColumnBoardIndex(getColumnNumber(value))
-      const lineIndex = getRelativeLineBoardIndex(value)
-
-      boardPositions[columnIndex][lineIndex].value = 'alterado'
-      console.log(boardPositions[columnIndex][lineIndex])
+  const onClick = (): void => {
+    if (selectedPiece?.value) {
+      move({ color, icon: piece, value, player })
+    } else if (piece !== '') {
+      selectPiece({ color, icon: piece, value, player })
+    } else {
+      selectPiece({})
     }
-    console.log(data)
   }
 
   return (
-    <div
-      className={`house-piece ${color}`}
-      onClick={() => {
-        onmousedown(value)
-      }}
-    >
-      <p>{value}</p>
-      <img src={piece} className="piece" />
+    <div className={`house-piece ${color}`} onClick={onClick}>
+      <img src={piece} className="piece" draggable="true" />
     </div>
   )
 }
