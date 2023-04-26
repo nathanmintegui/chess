@@ -32,8 +32,6 @@ export const Board: React.FC = () => {
       const newBoard = board.map(column =>
         column.map(square => {
           if (newPiecePosition.value === square.value) {
-            console.log(newPiecePosition)
-
             return newPiecePosition
           }
           if (selectedPiece.value === square.value) {
