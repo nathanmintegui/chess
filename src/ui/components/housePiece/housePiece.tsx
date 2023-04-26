@@ -6,10 +6,10 @@ interface HousePieceProps {
   color: string
   piece: string
   value: string
-  move: React.FC
+  move: (newPosition: object) => void
   player: string
   selectedPiece: object
-  selectPiece: React.FC
+  selectPiece: (arg: any) => void
 }
 
 export const HousePiece: React.FC<HousePieceProps> = ({
