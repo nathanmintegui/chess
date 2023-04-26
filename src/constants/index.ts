@@ -35,44 +35,44 @@ export const boardPositions: object[][] = [
     { value: 'h7', color: 'black', icon: PawnBlack }
   ],
   [
-    { value: 'a6', color: 'black' },
-    { value: 'b6', color: 'white' },
-    { value: 'c6', color: 'black' },
-    { value: 'd6', color: 'white' },
-    { value: 'e6', color: 'black' },
-    { value: 'f6', color: 'white' },
-    { value: 'g6', color: 'black' },
-    { value: 'h6', color: 'white' }
+    { value: 'a6', color: 'black', icon: '' },
+    { value: 'b6', color: 'white', icon: '' },
+    { value: 'c6', color: 'black', icon: '' },
+    { value: 'd6', color: 'white', icon: '' },
+    { value: 'e6', color: 'black', icon: '' },
+    { value: 'f6', color: 'white', icon: '' },
+    { value: 'g6', color: 'black', icon: '' },
+    { value: 'h6', color: 'white', icon: '' }
   ],
   [
-    { value: 'a5', color: 'white' },
-    { value: 'b5', color: 'black' },
-    { value: 'c5', color: 'white' },
-    { value: 'd5', color: 'black' },
-    { value: 'e5', color: 'white' },
-    { value: 'f5', color: 'black' },
-    { value: 'g5', color: 'white' },
-    { value: 'h5', color: 'black' }
+    { value: 'a5', color: 'white', icon: '' },
+    { value: 'b5', color: 'black', icon: '' },
+    { value: 'c5', color: 'white', icon: '' },
+    { value: 'd5', color: 'black', icon: '' },
+    { value: 'e5', color: 'white', icon: '' },
+    { value: 'f5', color: 'black', icon: '' },
+    { value: 'g5', color: 'white', icon: '' },
+    { value: 'h5', color: 'black', icon: '' }
   ],
   [
-    { value: 'a4', color: 'black' },
-    { value: 'b4', color: 'white' },
-    { value: 'c4', color: 'black' },
-    { value: 'd4', color: 'white' },
-    { value: 'e4', color: 'black' },
-    { value: 'f4', color: 'white' },
-    { value: 'g4', color: 'black' },
-    { value: 'h4', color: 'white' }
+    { value: 'a4', color: 'black', icon: '' },
+    { value: 'b4', color: 'white', icon: '' },
+    { value: 'c4', color: 'black', icon: '' },
+    { value: 'd4', color: 'white', icon: '' },
+    { value: 'e4', color: 'black', icon: '' },
+    { value: 'f4', color: 'white', icon: '' },
+    { value: 'g4', color: 'black', icon: '' },
+    { value: 'h4', color: 'white', icon: '' }
   ],
   [
-    { value: 'a3', color: 'white' },
-    { value: 'b3', color: 'black' },
-    { value: 'c3', color: 'white' },
-    { value: 'd3', color: 'black' },
-    { value: 'e3', color: 'white' },
-    { value: 'f3', color: 'black' },
-    { value: 'g3', color: 'white' },
-    { value: 'h3', color: 'black' }
+    { value: 'a3', color: 'white', icon: '' },
+    { value: 'b3', color: 'black', icon: '' },
+    { value: 'c3', color: 'white', icon: '' },
+    { value: 'd3', color: 'black', icon: '' },
+    { value: 'e3', color: 'white', icon: '' },
+    { value: 'f3', color: 'black', icon: '' },
+    { value: 'g3', color: 'white', icon: '' },
+    { value: 'h3', color: 'black', icon: '' }
   ],
   [
     { value: 'a1', color: 'black', icon: PawnWhite },
@@ -96,6 +96,15 @@ export const boardPositions: object[][] = [
   ]
 ]
 
-export const horizontalBoardPositons: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+export const horizontalBoardPositons: string[] = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H'
+]
 
 export const verticalBoardPositions: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
