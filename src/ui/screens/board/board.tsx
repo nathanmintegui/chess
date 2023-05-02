@@ -18,15 +18,25 @@ interface IHouse {
   player: string
 }
 
+interface INewPiecePosition {
+  icon?: string
+  player?: string
+  value?: string
+}
+
 export const Board: React.FC = () => {
   const [globalBoard] = useGlobalBoard()
 
   const [board, setBoard] = useState(globalBoard)
-  const [selectedPiece, setSelectedPiece] = useState({})
+  const [selectedPiece, setSelectedPiece] = useState<{
+    value?: string
+    icon?: string
+    player?: string
+  }>({})
 
   const movePiece = (newPosition: object): void => {
     if (!newPosition.player) {
-      const newPiecePosition = {
+      const newPiecePosition: INewPiecePosition = {
         ...newPosition,
         icon: selectedPiece.icon,
         player: selectedPiece.player
@@ -37,8 +47,8 @@ export const Board: React.FC = () => {
         player: ''
       }
 
-      const newBoard = board.map(column =>
-        column.map(square => {
+      const newBoard = board.map((column: any) =>
+        column.map((square: any) => {
           if (newPiecePosition.value === square.value) {
             return newPiecePosition
           }
