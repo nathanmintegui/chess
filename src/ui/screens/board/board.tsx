@@ -10,6 +10,13 @@ import {
 import { HousePiece } from '../../components/housePiece/housePiece'
 import useGlobalBoard from '../../../context/useGlobalBoard'
 
+interface IHouse {
+  icon: string
+  color: string
+  value: string
+  player: string
+}
+
 export const Board: React.FC = () => {
   const [globalBoard] = useGlobalBoard()
 
@@ -64,8 +71,8 @@ export const Board: React.FC = () => {
             </div>
             <div className="board__border--thin">
               <div className="board-container">
-                {board.map(line =>
-                  line.map((house, index) => (
+                {board.map((line: any) =>
+                  line.map((house: IHouse, index: number) => (
                     <HousePiece
                       key={index}
                       piece={house.icon}
