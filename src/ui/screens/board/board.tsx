@@ -8,6 +8,7 @@ import {
 } from '../../../constants/index.js'
 
 import { HousePiece } from '../../components/housePiece/housePiece'
+
 import useGlobalBoard from '../../../context/useGlobalBoard'
 
 interface IHouse {
@@ -75,10 +76,7 @@ export const Board: React.FC = () => {
                   line.map((house: IHouse, index: number) => (
                     <HousePiece
                       key={index}
-                      icon={house.icon}
-                      color={house.color}
-                      value={house.value}
-                      player={house.player}
+                      piece={house}
                       move={movePiece}
                       selectedPiece={selectedPiece}
                       selectPiece={setSelectedPiece}
