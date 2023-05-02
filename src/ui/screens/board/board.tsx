@@ -75,7 +75,7 @@ export const Board: React.FC = () => {
                   line.map((house: IHouse, index: number) => (
                     <HousePiece
                       key={index}
-                      piece={house.icon}
+                      icon={house.icon}
                       color={house.color}
                       value={house.value}
                       player={house.player}
