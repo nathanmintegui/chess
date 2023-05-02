@@ -8,17 +8,35 @@ import {
 } from '../../../constants/index.js'
 
 import { HousePiece } from '../../components/housePiece/housePiece'
+
 import useGlobalBoard from '../../../context/useGlobalBoard'
+
+interface IHouse {
+  icon: string
+  color: string
+  value: string
+  player: string
+}
+
+interface INewPiecePosition {
+  icon?: string
+  player?: string
+  value?: string
+}
 
 export const Board: React.FC = () => {
   const [globalBoard] = useGlobalBoard()
 
   const [board, setBoard] = useState(globalBoard)
-  const [selectedPiece, setSelectedPiece] = useState({})
+  const [selectedPiece, setSelectedPiece] = useState<{
+    value?: string
+    icon?: string
+    player?: string
+  }>({})
 
   const movePiece = (newPosition: object): void => {
     if (!newPosition.player) {
-      const newPiecePosition = {
+      const newPiecePosition: INewPiecePosition = {
         ...newPosition,
         icon: selectedPiece.icon,
         player: selectedPiece.player
@@ -29,8 +47,8 @@ export const Board: React.FC = () => {
         player: ''
       }
 
-      const newBoard = board.map(column =>
-        column.map(square => {
+      const newBoard = board.map((column: any) =>
+        column.map((square: any) => {
           if (newPiecePosition.value === square.value) {
             return newPiecePosition
           }
@@ -64,14 +82,11 @@ export const Board: React.FC = () => {
             </div>
             <div className="board__border--thin">
               <div className="board-container">
-                {board.map(line =>
-                  line.map((house, index) => (
+                {board.map((line: any) =>
+                  line.map((house: IHouse, index: number) => (
                     <HousePiece
                       key={index}
-                      piece={house.icon}
-                      color={house.color}
-                      value={house.value}
-                      player={house.player}
+                      piece={house}
                       move={movePiece}
                       selectedPiece={selectedPiece}
                       selectPiece={setSelectedPiece}
