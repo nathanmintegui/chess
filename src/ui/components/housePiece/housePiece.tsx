@@ -4,7 +4,7 @@ import './index.css'
 
 interface HousePieceProps {
   color: string
-  piece: string
+  icon: string
   value: string
   move: (newPosition: object) => void
   player: string
@@ -14,7 +14,7 @@ interface HousePieceProps {
 
 export const HousePiece: React.FC<HousePieceProps> = ({
   color,
-  piece,
+  icon,
   value,
   move,
   player,
@@ -23,9 +23,9 @@ export const HousePiece: React.FC<HousePieceProps> = ({
 }) => {
   const onClick = (): void => {
     if (selectedPiece?.value) {
-      move({ color, icon: piece, value, player })
-    } else if (piece !== '') {
-      selectPiece({ color, icon: piece, value, player })
+      move({ color, icon, value, player })
+    } else if (icon !== '') {
+      selectPiece({ color, icon, value, player })
     } else {
       selectPiece({})
     }
@@ -33,7 +33,7 @@ export const HousePiece: React.FC<HousePieceProps> = ({
 
   return (
     <div className={`house-piece ${color}`} onClick={onClick}>
-      <img src={piece} className="piece" draggable="true" />
+      <img src={icon} className="piece" draggable="true" />
     </div>
   )
 }
