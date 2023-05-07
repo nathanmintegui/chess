@@ -26,3 +26,14 @@
 .black {
   background-color: black;
 }
+
+.dot {
+  height: 20px;
+  width: 35px;
+
+  border-radius: 5em;
+
+  background-color: greenyellow;
+
+  margin-left: 15px;
+}
