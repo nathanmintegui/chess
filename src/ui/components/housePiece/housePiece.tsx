@@ -2,22 +2,27 @@ import React from 'react'
 
 import './index.css'
 
-import type IHousePiece from '../../../interfaces'
+import type { IPieceProps } from '../../../interfaces'
 
 interface HouseProps {
-  piece: IHousePiece
-  move: (newPosition: object) => void
+  piece: IPieceProps
   selectedPiece: object
+  isPositionAvailableToMove: boolean
+  move: (newPosition: object) => void
   selectPiece: (arg: any) => void
+  showPositionAvailableToMove: (currentPosition: object) => void
 }
 
 export const HousePiece: React.FC<HouseProps> = ({
   piece,
   move,
   selectedPiece,
-  selectPiece
+  selectPiece,
+  isPositionAvailableToMove,
+  showPositionAvailableToMove
 }: HouseProps) => {
   const onClick = (): void => {
+    showPositionAvailableToMove(piece)
     if (selectedPiece?.value) {
       move({
         color: piece.color,
@@ -39,6 +44,7 @@ export const HousePiece: React.FC<HouseProps> = ({
 
   return (
     <div className={`house-piece ${piece.color}`} onClick={onClick}>
+      {isPositionAvailableToMove ? <div className="dot"></div> : null}
       <img src={piece.icon} className="piece" draggable="true" />
     </div>
   )
