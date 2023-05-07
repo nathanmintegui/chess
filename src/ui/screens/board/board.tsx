@@ -11,11 +11,16 @@ import { HousePiece } from '../../components/housePiece/housePiece'
 
 import useGlobalBoard from '../../../context/useGlobalBoard'
 
+import returnAvailablePositions from '../../../utils/pieceMotions'
+
+import type { IPieceProps } from '../../../interfaces'
+
 interface IHouse {
   icon: string
   color: string
   value: string
   player: string
+  availableToMove: boolean
 }
 
 interface INewPiecePosition {
@@ -65,6 +70,22 @@ export const Board: React.FC = () => {
     setSelectedPiece({})
   }
 
+  const showPositionAvailableToMove = (currentPosition: IPieceProps): void => {
+    const availablePositions = returnAvailablePositions(currentPosition)
+
+    const newBoard = board.map((column: any) =>
+      column.map((square: any) => {
+        if (availablePositions === square.value) {
+          square.availableToMove = true
+        }
+
+        return square
+      })
+    )
+
+    setBoard(newBoard)
+  }
+
   return (
     <div className="board-screen">
       <div className="board__border">
@@ -90,6 +111,8 @@ export const Board: React.FC = () => {
                       move={movePiece}
                       selectedPiece={selectedPiece}
                       selectPiece={setSelectedPiece}
+                      isPositionAvailableToMove={house.availableToMove}
+                      showPositionAvailableToMove={showPositionAvailableToMove}
                     />
                   ))
                 )}
