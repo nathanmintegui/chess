@@ -61,7 +61,13 @@ const initialState: object[][] = [
     { value: 'b4', color: 'white', icon: '', player: '' },
     { value: 'c4', color: 'black', icon: '', player: '' },
     { value: 'd4', color: 'white', icon: '', player: '' },
-    { value: 'e4', color: 'black', icon: '', player: '' },
+    {
+      value: 'e4',
+      color: 'black',
+      icon: '',
+      player: '',
+      availableToMove: false
+    },
     { value: 'f4', color: 'white', icon: '', player: '' },
     { value: 'g4', color: 'black', icon: '', player: '' },
     { value: 'h4', color: 'white', icon: '', player: '' }
@@ -71,8 +77,19 @@ const initialState: object[][] = [
     { value: 'b3', color: 'black', icon: '', player: '' },
     { value: 'c3', color: 'white', icon: '', player: '' },
     { value: 'd3', color: 'black', icon: '', player: '' },
-    { value: 'e3', color: 'white', icon: '', player: '' },
-    { value: 'f3', color: 'black', icon: '', player: '' },
+    {
+      value: 'e3',
+      color: 'white',
+      icon: '',
+      player: '',
+      availableToMove: false
+    },
+    {
+      value: 'f3',
+      color: 'black',
+      icon: '',
+      player: ''
+    },
     { value: 'g3', color: 'white', icon: '', player: '' },
     { value: 'h3', color: 'black', icon: '', player: '' }
   ],
