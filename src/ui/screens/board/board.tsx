@@ -11,9 +11,8 @@ import { HousePiece } from '../../components/housePiece/housePiece'
 
 import useGlobalBoard from '../../../context/useGlobalBoard'
 
-import returnAvailablePositions from '../../../utils/pieceMotions'
-
 import type { IPieceProps } from '../../../interfaces'
+import { returnAvailablePositions } from '../../../pieceMotion/pieceMotion'
 
 interface IHouse {
   icon: string
